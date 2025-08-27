@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MD Asraful — Portfolio</title>
+  <meta name="description" content="The black & white portfolio of MD Asraful." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #0a0a0a;
+      --muted: #666666;
+      --border: #e5e5e5;
+      --inverse-bg: #0a0a0a;
+      --inverse-fg: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+      color: var(--fg); background: var(--bg); line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+
+    header.site {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(180%) blur(8px);
+      background: color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .brand { font-weight: 800; letter-spacing: .5px; }
+    .menu { display: flex; gap: 20px; }
+    .menu a { opacity: .8; }
+    .menu a:hover { opacity: 1; text-decoration: underline; }
+
+    .hero {
+      padding: 96px 0 72px; border-bottom: 1px solid var(--border);
+    }
+    .kicker { text-transform: uppercase; letter-spacing: .18em; font-size: 12px; color: var(--muted); }
+    .title { font-size: clamp(36px, 6vw, 64px); line-height: 1.1; margin: 10px 0 14px; font-weight: 900; }
+    .subtitle { font-size: clamp(16px, 2.4vw, 20px); color: var(--muted); max-width: 60ch; }
+    .cta { display: flex; gap: 12px; margin-top: 28px; }
+    .btn { padding: 12px 18px; border-radius: 999px; border: 1px solid var(--fg); background: var(--fg); color: var(--inverse-fg); font-weight: 700; }
+    .btn.outline { background: transparent; color: var(--fg); }
+    .btn:hover { transform: translateY(-1px); }
+
+    section { padding: 64px 0; }
+    .section-title { font-size: 28px; margin: 0 0 16px; }
+    .section-sub { color: var(--muted); margin-bottom: 28px; }
+
+    .about { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: start; }
+    .about-card { border: 1px solid var(--border); border-radius: 18px; padding: 22px; }
+    .about li { margin-bottom: 10px; }
+
+    .grid { display: grid; gap: 18px; }
+    .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+    .card { border: 1px solid var(--fg); border-radius: 22px; padding: 22px; transition: transform .15s ease, box-shadow .15s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(0,0,0,.06); }
+    .card header { display: flex; justify-content: space-between; align-items: baseline; }
+    .chip { border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; font-size: 12px; color: var(--muted); }
+
+    .projects .card a { text-decoration: underline; }
+
+    .strip { background: var(--inverse-bg); color: var(--inverse-fg); padding: 56px 0; }
+    .strip .card { border-color: var(--inverse-fg); }
+
+    .list-inline { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { border: 1px solid currentColor; border-radius: 999px; padding: 6px 10px; font-size: 12px; }
+
+    .contact-box { border: 1px dashed var(--fg); border-radius: 22px; padding: 24px; display: grid; gap: 12px; }
+
+    footer { border-top: 1px solid var(--border); padding: 24px 0; color: var(--muted); font-size: 14px; }
+
+    @media (max-width: 900px) {
+      .about { grid-template-columns: 1fr; }
+      .grid.cols-3 { grid-template-columns: 1fr; }
+      .grid.cols-2 { grid-template-columns: 1fr; }
+      .cta { flex-wrap: wrap; }
+    }
+  </style>
+  <script>
+    // Smooth scroll for in-page links
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const id = a.getAttribute('href');
+          if (id.length > 1) {
+            e.preventDefault();
+            document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="container nav">
+      <a class="brand" href="#top">MD Asraful</a>
+      <nav class="menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#resume">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="kicker">Portfolio • Black & White</div>
+      <h1 class="title">Hi, I'm <span style="white-space:nowrap">MD Asraful</span> —
+        <br/>
+        I build clean, minimal web experiences.</h1>
+      <p class="subtitle">Front‑end focused developer who loves fast, accessible, and modern interfaces. This is a starter template you can deploy on GitHub Pages in minutes.</p>
+      <div class="cta">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn outline" href="#contact">Get in Touch</a>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <h2 class="section-title">About</h2>
+      <p class="section-sub">A short snapshot of who I am and how I work.</p>
+      <div class="about">
+        <article class="about-card">
+          <h3>Bio</h3>
+          <p>I’m MD Asraful, a web developer focused on JavaScript, modern CSS, and clean UI. I care about performance, semantics, and maintainable code. I enjoy turning complex ideas into simple products.</p>
+          <ul>
+            <li>🛠️ Preferred stack: HTML, CSS, JS, React</li>
+            <li>⚡ Interests: UI engineering, performance, and automation</li>
+            <li>🌍 Based in: Bangladesh</li>
+          </ul>
+        </article>
+        <aside class="about-card">
+          <h3>Quick Facts</h3>
+          <ul>
+            <li>✅ 3+ production projects shipped</li>
+            <li>✅ Open‑source contributor on GitHub</li>
+            <li>✅ Available for freelance & remote roles</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="skills" class="strip">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-sub">Tools and technologies I use regularly.</p>
+        <div class="list-inline">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">React</span>
+          <span class="tag">Git & GitHub</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Responsive UI</span>
+          <span class="tag">Accessibility (a11y)</span>
+          <span class="tag">Performance</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="container projects">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-sub">A few highlights. Replace with your real work.</p>
+      <div class="grid cols-3">
+        <article class="card">
+          <header>
+            <h3>Monochrome UI Kit</h3>
+            <span class="chip">Frontend</span>
+          </header>
+          <p>A minimal component library built with pure HTML/CSS, focusing on accessibility and speed.</p>
+          <p><a href="#">Live Demo</a> · <a href="#">Source</a></p>
+        </article>
+        <article class="card">
+          <header>
+            <h3>Tasks App</h3>
+            <span class="chip">Full‑stack</span>
+          </header>
+          <p>A tiny productivity app with offline support and keyboard‑first navigation.</p>
+          <p><a href="#">Live Demo</a> · <a href="#">Source</a></p>
+        </article>
+        <article class="card">
+          <header>
+            <h3>Portfolio Generator</h3>
+            <span class="chip">CLI</span>
+          </header>
+          <p>Command‑line tool that scaffolds a black & white portfolio from your GitHub profile.</p>
+          <p><a href="#">Live Demo</a> · <a href="#">Source</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="resume" class="strip">
+      <div class="container">
+        <h2 class="section-title">Resume</h2>
+        <p class="section-sub">Download a PDF copy or read the highlights below.</p>
+        <div class="grid cols-2">
+          <article class="card">
+            <h3>Experience</h3>
+            <ul>
+              <li><strong>Front‑end Developer</strong> — Freelance (2023–Now)<br/><span class="muted">Built landing pages, dashboards, and micro‑sites for clients.</span></li>
+              <li><strong>Open‑source</strong> — Contributor<br/><span class="muted">Fixed UI bugs, improved docs, and submitted small features.</span></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Education</h3>
+            <ul>
+              <li><strong>B.Sc.</strong> — Computer Science (In progress)</li>
+              <li>Certs: Responsive Web Design, JS Algorithms & Data Structures</li>
+            </ul>
+            <p><a class="btn outline" href="#" download>Download PDF</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">Have a project in mind? Let’s talk.</p>
+      <div class="contact-box">
+        <div>
+          <strong>Email</strong><br/>
+          <a href="mailto:hello.asraful@example.com">hello.asraful@example.com</a>
+        </div>
+        <div>
+          <strong>GitHub</strong><br/>
+          <a href="https://github.com/" target="_blank" rel="noreferrer">github.com/your-username</a>
+        </div>
+        <div>
+          <strong>LinkedIn</strong><br/>
+          <a href="https://linkedin.com/in/" target="_blank" rel="noreferrer">linkedin.com/in/your-handle</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="y"></span> MD Asraful — Built with pure HTML & CSS.
+    </div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
